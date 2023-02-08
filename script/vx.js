@@ -1,5 +1,4 @@
 
-// ===================================Necessary Var=========================================
 const cells = document.querySelectorAll('.cell')
 const stat_text = document.getElementById('statusText')
 const stat_textf = document.getElementById('statusTextf')
@@ -12,8 +11,8 @@ let ss = 0;
 let ss2 = 0;
  
 
-aud.src ="/Project/XO/Opening-Credits-_-Game-of-Thrones-_-Season-8-_HBO_.mp3"
-aud2.src="/Project/XO/sword-sound-effects-for-Editing.mp3"
+aud.src ="/Project/XO/sound/Opening-Credits-_-Game-of-Thrones-_-Season-8-_HBO_.mp3"
+aud2.src="/Project/XO/sound/sword-sound-effects-for-Editing.mp3"
 aud.volume =0.5;
 aud2.volume = 0.8;
 
@@ -28,20 +27,12 @@ const winConditions =[
     [2,4,6]
 ];
 
-
-
 let options = ['','','','','','','','','']
 let cur =["X","O","X","O"]
 let rannd = Math.floor(Math.random()*cur.length)
 let currentPlayer = cur[rannd];
 let running =0;
 
-
-
-
-
-
-// ===================================Game Start=========================================
 gamestart();
 
 function gamestart(){
@@ -52,10 +43,6 @@ stat_text.textContent = `${currentPlayer}'s turn`
 running= 1;
 }
 
-
-
-
-// ===================================Game Commands=========================================
 function c_clicked(){
 const cellIndex = this.getAttribute('id');
 
@@ -63,66 +50,38 @@ if(options[cellIndex] != "" || !running){
     return;
 }
 
-updateCell(this ,cellIndex);
-changePlayer();
-checkWinner();
-aud.play();
+updateCell(this ,cellIndex); changePlayer();checkWinner();aud.play();
 }
-
-
-                        // ============================================
-
 
 function updateCell(cell, index){
     options[index] = currentPlayer;
     cell.textContent=currentPlayer;
 }
-
-
-                        // ============================================
-
-
 function changePlayer(){
     currentPlayer=(currentPlayer === "X") ? "O" :"X";
     stat_text.textContent =`${currentPlayer}'s turn `
 }
-
-
-                        // ============================================
-
-
 function checkWinner(){
-
     let roundWon = 0;
-
     for(let i = 0; i < winConditions.length; i++){
         const condition = winConditions[i];
         const cho1 = options[condition[0]];
         const cho2 = options[condition[1]];
         const cho3 = options[condition[2]];
-
         if(cho1 == "" || 
         cho2 == "" ||
         cho3 == ""){continue;}
-
-
         if(cho1 == cho2 && cho2 == cho3){
             roundWon = 1;
             break;
         }
     }
 
-
-                        // ============================================
-
-
     if(roundWon ===1){
         currentPlayer = (currentPlayer === "X")? "O" :"X";
         stat_text.textContent = `${currentPlayer} wins!`;
         aud2.play();
         running = 0;
-
-        
 
         if(currentPlayer === "O"){
             ++ss
@@ -137,7 +96,6 @@ function checkWinner(){
             if(ss>3){
                 stat_text.textContent = `${currentPlayer}' Legend Charcter!!!`;
                 stat_textf.textContent ="Final Winner is Player Two"
-                
             }
             
         }
@@ -157,8 +115,6 @@ function checkWinner(){
                 stat_textf.textContent ="Final Winner is Player one"
                
             }
-            
-
         }
     }
     else if(!options.includes("")){
@@ -167,10 +123,6 @@ function checkWinner(){
     }
    
 }
-
-
-                        // ============================================
-
 
 function resartGame(){
     currentPlayer = "X";
@@ -181,7 +133,6 @@ function resartGame(){
     let rannd2 = Math.floor(Math.random()*cur.length)
     currentPlayer = cur2[rannd2];
     stat_text.textContent =`${currentPlayer}'s turn `
-    
     running = 1;
 }
 

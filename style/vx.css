@@ -10,10 +10,11 @@ h1{
     text-shadow: 2px 2px 3px  black;
     background-color: rgba(0, 0, 0, 0.5);
     width: 500px;
-    margin-left: 430px;
+    margin-left: 508px;
     border: 2px solid white;
     border-radius: 10px;
     margin-top:20px ;
+    margin-bottom: -30px;
 }
 
 .cell{
