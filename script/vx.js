@@ -10,8 +10,8 @@ const aud2 = document.getElementById('aud2')
 let ss = 0;
 let ss2 = 0;
 
-aud.src ="/XO/sound/Opening-Credits-_-Game-of-Thrones-_-Season-8-_HBO_.mp3"
-aud2.src="/XO/sound/sword-sound-effects-for-Editing.mp3"
+aud.src ="./XO/sound/Opening-Credits-_-Game-of-Thrones-_-Season-8-_HBO_.mp3"
+aud2.src="./XO/sound/sword-sound-effects-for-Editing.mp3"
 aud.volume =0.5;
 aud2.volume = 0.8;
 
